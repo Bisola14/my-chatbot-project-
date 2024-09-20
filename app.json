@@ -1,0 +1,15 @@
+{
+    "name": "my-chatbot-project",
+    "description": "A simple AI-powered chatbot",
+    "scripts": {
+      "postdeploy": "pip install -r requirements.txt"
+    },
+    "env": {
+      "SECRET_KEY": {
+        "description": "A secret key for your application",
+        "required": true
+      }
+    },
+    "addons": ["heroku-postgresql"]
+  }
+  
