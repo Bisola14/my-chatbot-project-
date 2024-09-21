@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        async function sendMessage() {
+            const userMessage = document.getElementById('userMessage').value;
+            if (!userMessage) return;
+
+            // Display user message
+            const chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += `<div class="user-message">You: ${userMessage}</div>`;
+
+            // Send message to the backend
+            const response = await fetch('/whatsapp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ Body: userMessage })
+            });
+
+            const text = await response.text();
+            chatbox.innerHTML += `<div class="bot-message">Bot: ${text}</div>`;
+            document.getElementById('userMessage').value = ''; // Clear input
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+        }
+    </script>
+</head>
+<body>
+    <h1>AI-Powered Customer Support Chatbot</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userMessage" placeholder="Type your message here...">
+    <button onclick="sendMessage()">Send</button>
+</body>
+</html>

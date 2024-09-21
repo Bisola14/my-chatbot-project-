@@ -1,6 +1,6 @@
 import os 
 import subprocess
-from flask import Flask, request, session
+from flask import Flask, request, session, render_template
 
 app = Flask(__name__)
 
@@ -16,10 +16,9 @@ faq_responses = {
     "where are you located?": "Our office is located at 123 Main St, Anytown.",
 }
 
-# Add a route for the root URL ("/")
 @app.route("/")
 def home():
-    return "<h1>Welcome to the AI-Powered Customer Support Chatbot!</h1><p>This is the home page.</p>"
+    return render_template('index.html')
 
 def get_ollama_response(user_input):
     # This will call the Qwen 2.5 model using subprocess and capture the output
@@ -66,6 +65,11 @@ def whatsapp_reply():
 
     # Default response with AI-generated answer
     return f'<Response><Message>{ai_response}</Message></Response>'
+
+# New route for serving the chatbot's HTML interface
+@app.route('/chat', methods=['GET'])
+def chat():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))  # Get the PORT from the environment
