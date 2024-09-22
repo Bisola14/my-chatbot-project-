@@ -7,13 +7,49 @@ app = Flask(__name__)
 # Set a secret key for session handling (for memory/contextual replies)
 app.secret_key = 'your_secret_key'
 
-# Predefined FAQ responses
+# Updated Predefined FAQ responses
 faq_responses = {
-    "what is your return policy?": "You can return items within 30 days for a full refund.",
-    "pricing": "Our prices vary depending on the product. Please visit our website for more detailed pricing information.",
-    "what is the delivery time?": "We typically deliver within 3-5 business days.",
-    "what are your hours?": "We are open from 9 AM to 5 PM, Monday to Friday.",
-    "where are you located?": "Our office is located at 123 Main St, Anytown.",
+    # General Information
+    "what is af beauty castle?": "AF Beauty Castle is a premier beauty brand offering a wide range of beauty products and services, including skincare, haircare, and professional beauty treatments.",
+    "where is af beauty castle located?": "We are located at 28, Herman Renlundin katu 67200, Kokkola. You can also contact us through WhatsApp Business.",
+    "how can i contact af beauty castle for more information?": "You can reach us via email at arafatbisola111@gmail.com or through our customer support line at +1(415)523-8886.",
+    
+    # Product Information
+    "what products do you offer?": "We offer a wide range of beauty products, including skincare (moisturizers, cleansers, serums), haircare (shampoos, conditioners, treatments), makeup (foundation, lipstick, eyeshadow), and beauty tools and accessories.",
+    "can i get recommendations for products that suit my skin type?": "Absolutely! Please tell me your skin type (e.g., oily, dry, combination), and I can recommend products that are best suited to your needs.",
+    
+    # Service Information
+    "what beauty services do you offer?": "We offer facials, hair styling and treatments, manicure and pedicure, and makeup application for special occasions. Contact us for more details.",
+    "how do i book an appointment for a beauty service?": "You can book an appointment by contacting us via WhatsApp or phone at +1(415)523-8886. We recommend booking at least 48 hours in advance.",
+    "what is your cancellation policy for appointments?": "We ask that you cancel or reschedule your appointment at least 24 hours in advance. Failure to do so may result in a cancellation fee.",
+    
+    # Pricing and Promotions
+    "how much do your services cost?": "Service prices vary depending on the treatment. Please contact us for specific pricing information.",
+    "do you offer discounts or promotions?": "Yes, we regularly offer promotions on our products and services. Follow us on social media for exclusive deals!",
+    "do you offer membership or loyalty programs?": "Yes, we offer a loyalty program where you can earn points for every purchase, which can be redeemed for discounts on future services or products.",
+    
+    # Order Information
+    "how do i place an order?": "You can place an order by contacting us directly. Add your desired products to the cart and proceed with payment.",
+    "can i track my order?": "Yes, once you place your order, you'll receive a confirmation with a tracking number to monitor your delivery.",
+    "how long does delivery take?": "Delivery typically takes 3-5 business days, depending on your location. We also offer express shipping.",
+    "what are the shipping charges?": "Shipping charges vary depending on location and delivery speed. Free shipping is available for orders above 50 euros.",
+    
+    # Returns and Refunds
+    "what is your return policy?": "We accept returns within 14 days of purchase, provided the product is unused and in its original packaging. Some exclusions apply.",
+    "how do i return a product?": "To return a product, contact us with your order number and reason for return. We’ll guide you through the process.",
+    "when will i receive my refund?": "Once we receive and inspect the returned product, your refund will be processed within 5-7 business days.",
+    
+    # Customer Support
+    "what should i do if i have an issue with my order?": "If you experience any issues with your order, such as incorrect items or damaged products, please contact our support team at 0465494147 or arafatbisola111@gmail.com.",
+    "how can i give feedback on my experience?": "We value your feedback! Feel free to leave a review or send your feedback directly to arafatbisola111@gmail.com.",
+    
+    # Chatbot Limitations and Escalation
+    "what if the chatbot can’t answer my question?": "If the chatbot cannot assist, it will redirect you to a human agent. You can also type 'Talk to a human' at any time.",
+    "how do i contact a live agent?": "If you need a live agent, type 'Talk to a human,' or contact us via WhatsApp or phone at 0465494147.",
+    
+    # Privacy and Security
+    "is my personal information secure with af beauty castle?": "Yes, we take your privacy seriously. All personal information is protected and will not be shared with third parties.",
+    "how is my payment information secured?": "All payment transactions are securely processed through our trusted payment gateway. We do not store your credit card information."
 }
 
 @app.route("/")
